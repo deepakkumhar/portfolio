@@ -209,6 +209,32 @@
   }
   .plate-cap b{color:var(--ink); font-weight:700;}
 
+  /* ============ KEYWORD BAND ============ */
+  .keyword-band{padding:var(--sp-4) 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .keyword-band .kb-label{
+    font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:var(--sp-2);
+  }
+  .kb-row{display:flex; flex-wrap:wrap; gap:.55rem;}
+  .kb-chip{
+    font-family:var(--font-display); font-weight:600; font-size:.95rem; padding:.55rem 1.1rem; border-radius:999px;
+    transition:transform .2s var(--ease), box-shadow .2s var(--ease);
+  }
+  .kb-chip:hover{transform:translateY(-3px) scale(1.03);}
+  .kb-chip.c-primary{background:var(--primary-soft); color:var(--primary);}
+  .kb-chip.c-secondary{background:var(--secondary-soft); color:var(--secondary);}
+  .kb-chip.c-tertiary{background:var(--tertiary-soft); color:var(--tertiary);}
+  .kb-chip.c-amber{background:var(--amber-soft); color:#9a6300;}
+  :root[data-theme="dark"] .kb-chip.c-amber{color:var(--amber);}
+  @media (prefers-color-scheme:dark){ .kb-chip.c-amber{color:var(--amber);} }
+  .kb-chip.c-good{background:var(--good-soft); color:var(--good);}
+  .kb-chip.c-pink{background:var(--pink-soft); color:var(--pink);}
+  .kb-chip:hover.c-primary{box-shadow:0 10px 24px -8px color-mix(in srgb, var(--primary) 50%, transparent);}
+  .kb-chip:hover.c-secondary{box-shadow:0 10px 24px -8px color-mix(in srgb, var(--secondary) 50%, transparent);}
+  .kb-chip:hover.c-tertiary{box-shadow:0 10px 24px -8px color-mix(in srgb, var(--tertiary) 50%, transparent);}
+  .kb-chip:hover.c-amber{box-shadow:0 10px 24px -8px color-mix(in srgb, var(--amber) 50%, transparent);}
+  .kb-chip:hover.c-good{box-shadow:0 10px 24px -8px color-mix(in srgb, var(--good) 50%, transparent);}
+  .kb-chip:hover.c-pink{box-shadow:0 10px 24px -8px color-mix(in srgb, var(--pink) 50%, transparent);}
+
   /* ============ PROFILE ============ */
   .profile-grid{display:grid; grid-template-columns:2fr 1fr; gap:var(--sp-6);}
   .profile-grid .lede{font-size:clamp(1.15rem,2vw,1.35rem); line-height:1.6; font-weight:500; max-width:62ch; color:var(--ink);}
@@ -331,18 +357,27 @@
     font-size:.82rem; font-weight:700; color:var(--secondary); text-decoration:none; display:inline-flex; align-items:center; gap:.35rem; width:fit-content; position:relative; z-index:1;
   }
   .proj-link:hover{text-decoration:underline;}
-  .chip-row{position:relative; z-index:1;}
+  .chip-row{position:relative; z-index:1; display:flex; flex-wrap:wrap; gap:.4rem;}
   .chip::before{content:""; display:inline-block; width:5px; height:5px; border-radius:50%; background:currentColor; opacity:.7; margin-right:.35rem; vertical-align:middle;}
 
-  .proj-card.proj-feature{grid-column:1 / -1; display:grid; grid-template-columns:1.3fr 1fr; column-gap:var(--sp-5); row-gap:var(--sp-2); padding:var(--sp-5);}
-  .proj-feature .proj-top, .proj-feature .feature-eyebrow, .proj-feature .proj-title, .proj-feature .proj-role-row, .proj-feature .proj-bullets, .proj-feature .proj-link{grid-column:1;}
+  .proj-subhead{
+    font-family:var(--font-mono); font-size:.66rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-faint); margin:1rem 0 .4rem; position:relative; z-index:1;
+  }
+  .proj-subhead:first-of-type{margin-top:1.1rem;}
+  .proj-role-text{font-size:.88rem; color:var(--ink-soft); line-height:1.6; margin-bottom:.2rem; position:relative; z-index:1;}
+
+  .proj-card.proj-feature{grid-column:1 / -1; display:grid; grid-template-columns:1.3fr 1fr; column-gap:var(--sp-5); row-gap:0; padding:var(--sp-5);}
+  .proj-feature .proj-top, .proj-feature .feature-eyebrow, .proj-feature .proj-title, .proj-feature .proj-role-row,
+  .proj-feature .proj-subhead, .proj-feature .proj-role-text, .proj-feature .proj-bullets, .proj-feature .proj-link{grid-column:1;}
   .proj-feature .proj-title{font-size:1.8rem;}
-  .proj-feature .chip-row{grid-column:2; grid-row:1 / -1; align-content:flex-start; align-self:start; border-left:1px solid var(--line); padding-left:var(--sp-4); margin-top:1.8rem;}
+  .proj-feature .proj-techstack{grid-column:2; grid-row:1 / -1; align-self:start; border-left:1px solid var(--line); padding-left:var(--sp-4); margin-top:1.8rem;}
+  .proj-feature .proj-techstack .proj-subhead{margin-top:0;}
   .proj-feature::after{font-size:8rem; right:1.5rem;}
   @media (max-width:760px){
     .proj-grid{grid-template-columns:1fr;}
     .proj-card.proj-feature{grid-template-columns:1fr; padding:var(--sp-4);}
-    .proj-feature .chip-row{grid-column:1; grid-row:auto; border-left:none; padding-left:0; margin-top:var(--sp-2);}
+    .proj-feature .proj-techstack{grid-column:1; grid-row:auto; border-left:none; padding-left:0; margin-top:var(--sp-2);}
     .proj-feature .proj-title{font-size:1.5rem;}
   }
 
@@ -450,6 +485,24 @@
           </div>
           <div class="plate-cap"><b>Deepak Kumar</b> — Solo Architect, Remote Ops</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KEYWORD BAND ============ -->
+  <section class="keyword-band">
+    <div class="container">
+      <div class="kb-label reveal">What I Build</div>
+      <div class="kb-row reveal">
+        <span class="kb-chip c-primary">AI Workflows</span>
+        <span class="kb-chip c-secondary">AI Automation</span>
+        <span class="kb-chip c-tertiary">AI Agents</span>
+        <span class="kb-chip c-amber">AI Chatbots</span>
+        <span class="kb-chip c-good">RAG &amp; GraphRAG</span>
+        <span class="kb-chip c-pink">LLM Orchestration</span>
+        <span class="kb-chip c-primary">Conversational AI</span>
+        <span class="kb-chip c-secondary">Document Intelligence</span>
+        <span class="kb-chip c-tertiary">Enterprise AI Copilots</span>
       </div>
     </div>
   </section>
@@ -612,8 +665,13 @@
             <li>Architected a LangGraph multi-agent pipeline orchestrating specialized agents for Symptom Extraction, History Synthesis, and Clinical Safety Verification, backed by a Hybrid GraphRAG system combining pgvector embeddings and medical ontologies.</li>
             <li>Integrated NeMo Guardrails to eliminate medical hallucinations, enforced 100% HIPAA/PHI data privacy, and cut physician chart review time by 65%.</li>
           </ul>
-          <div class="chip-row">
-            <span class="chip c-primary">LangGraph</span><span class="chip c-primary">FastAPI</span><span class="chip c-primary">Bedrock Claude 3.5</span><span class="chip c-primary">pgvector</span><span class="chip c-primary">NeMo Guardrails</span><span class="chip c-primary">FHIR/HL7</span>
+          <div class="proj-techstack">
+            <div class="proj-subhead">Role &amp; Responsibility</div>
+            <p class="proj-role-text">Sole technical owner end-to-end — architected the multi-agent pipeline, built the GraphRAG retrieval layer, and enforced HIPAA/PHI-safe data handling across the whole system.</p>
+            <div class="proj-subhead">Technology Stack</div>
+            <div class="chip-row">
+              <span class="chip c-primary">LangGraph</span><span class="chip c-primary">FastAPI</span><span class="chip c-primary">Bedrock Claude 3.5</span><span class="chip c-primary">pgvector</span><span class="chip c-primary">NeMo Guardrails</span><span class="chip c-primary">FHIR/HL7</span>
+            </div>
           </div>
         </div>
 
@@ -627,8 +685,13 @@
             <li>Orchestrated tool-calling agents powered by Claude 3.5 Sonnet that continuously evaluate geospatial sensor streams with PostGIS, detect traffic and weather bottlenecks, and autonomously trigger dynamic re-routing proposals.</li>
             <li>Reduced delayed deliveries by 32%, minimized fleet idle-fuel consumption, and integrated automated real-time SMS/email notifications for dispatchers and customers.</li>
           </ul>
-          <div class="chip-row">
-            <span class="chip c-secondary">LangChain</span><span class="chip c-secondary">Celery</span><span class="chip c-secondary">PostGIS</span><span class="chip c-secondary">Redis Pub/Sub</span><span class="chip c-secondary">WebSockets</span><span class="chip c-secondary">OR-Tools</span>
+          <div class="proj-techstack">
+            <div class="proj-subhead">Role &amp; Responsibility</div>
+            <p class="proj-role-text">Sole systems architect — designed the live ingestion pipeline, the tool-calling dispatch agents, and the PostGIS-based geospatial reasoning behind every re-routing decision.</p>
+            <div class="proj-subhead">Technology Stack</div>
+            <div class="chip-row">
+              <span class="chip c-secondary">LangChain</span><span class="chip c-secondary">Celery</span><span class="chip c-secondary">PostGIS</span><span class="chip c-secondary">Redis Pub/Sub</span><span class="chip c-secondary">WebSockets</span><span class="chip c-secondary">OR-Tools</span>
+            </div>
           </div>
         </div>
 
@@ -643,8 +706,13 @@
             <li>Enabled automated synthesis of live business data to generate real-time tabular analysis, trends, and charts, eliminating hours of manual weekly reporting across departments.</li>
           </ul>
           <a class="proj-link" href="https://copilot.getrewa.com/" target="_blank" rel="noopener">copilot.getrewa.com ↗</a>
-          <div class="chip-row">
-            <span class="chip c-tertiary">Bedrock Claude</span><span class="chip c-tertiary">Dynamic Tool Calling</span><span class="chip c-tertiary">PostgreSQL</span><span class="chip c-tertiary">AWS S3/EC2</span>
+          <div class="proj-techstack">
+            <div class="proj-subhead">Role &amp; Responsibility</div>
+            <p class="proj-role-text">Owned the AI integration layer — connected Claude models to internal REST services, enforced role-based access and audit trails, and shipped the natural-language analytics experience.</p>
+            <div class="proj-subhead">Technology Stack</div>
+            <div class="chip-row">
+              <span class="chip c-tertiary">Bedrock Claude</span><span class="chip c-tertiary">Dynamic Tool Calling</span><span class="chip c-tertiary">PostgreSQL</span><span class="chip c-tertiary">AWS S3/EC2</span>
+            </div>
           </div>
         </div>
 
@@ -659,8 +727,13 @@
             <li>Exposed secure JWT-authenticated REST APIs for external client portals and mobile interfaces, eliminating 80% of manual data entry errors and accelerating sales fulfillment cycles.</li>
           </ul>
           <a class="proj-link" href="https://sap.chembondflux.com/" target="_blank" rel="noopener">sap.chembondflux.com ↗</a>
-          <div class="chip-row">
-            <span class="chip c-amber">Django REST Framework</span><span class="chip c-amber">OCR</span><span class="chip c-amber">JWT</span><span class="chip c-amber">Multi-tenant</span>
+          <div class="proj-techstack">
+            <div class="proj-subhead">Role &amp; Responsibility</div>
+            <p class="proj-role-text">Backend architect and API lead — designed the PO-to-SO automation pipeline, the OCR-based document intelligence layer, and the multi-tier approval routing logic.</p>
+            <div class="proj-subhead">Technology Stack</div>
+            <div class="chip-row">
+              <span class="chip c-amber">Django REST Framework</span><span class="chip c-amber">OCR</span><span class="chip c-amber">JWT</span><span class="chip c-amber">Multi-tenant</span>
+            </div>
           </div>
         </div>
 
@@ -675,8 +748,13 @@
             <li>Tuned high-concurrency PostgreSQL queries and automated background tasks via Celery, ensuring instantaneous report generation and zero system downtime during peak payroll cycles.</li>
           </ul>
           <a class="proj-link" href="https://oneteam.getrewa.com/" target="_blank" rel="noopener">oneteam.getrewa.com ↗</a>
-          <div class="chip-row">
-            <span class="chip c-good">Django ORM</span><span class="chip c-good">Celery</span><span class="chip c-good">RBAC</span><span class="chip c-good">PostgreSQL</span>
+          <div class="proj-techstack">
+            <div class="proj-subhead">Role &amp; Responsibility</div>
+            <p class="proj-role-text">Core backend and database engineer — built the attendance, payroll, and appraisal workflows, with branch-level isolation and high-concurrency query tuning.</p>
+            <div class="proj-subhead">Technology Stack</div>
+            <div class="chip-row">
+              <span class="chip c-good">Django ORM</span><span class="chip c-good">Celery</span><span class="chip c-good">RBAC</span><span class="chip c-good">PostgreSQL</span>
+            </div>
           </div>
         </div>
 
@@ -691,8 +769,13 @@
             <li>Constructed a dedicated supplier self-service portal for quotation submission and dispatch tracking, removing redundant data entry and speeding up procurement turnaround times.</li>
           </ul>
           <a class="proj-link" href="https://procurement-chembond.getrewa.com/" target="_blank" rel="noopener">procurement-chembond.getrewa.com ↗</a>
-          <div class="chip-row">
-            <span class="chip c-pink">SAP ERP Integration</span><span class="chip c-pink">Django REST Framework</span><span class="chip c-pink">Vendor Portal</span>
+          <div class="proj-techstack">
+            <div class="proj-subhead">Role &amp; Responsibility</div>
+            <p class="proj-role-text">Backend and SAP sync lead — engineered the bi-directional ERP synchronization and built the supplier self-service portal end-to-end.</p>
+            <div class="proj-subhead">Technology Stack</div>
+            <div class="chip-row">
+              <span class="chip c-pink">SAP ERP Integration</span><span class="chip c-pink">Django REST Framework</span><span class="chip c-pink">Vendor Portal</span>
+            </div>
           </div>
         </div>
 
@@ -707,8 +790,13 @@
             <li>Exposed robust REST APIs with JWT authentication, giving sales directors complete real-time visibility over deal pipelines, sample trial results, and closing timelines.</li>
           </ul>
           <a class="proj-link" href="https://finor.crm.getrewa.com/" target="_blank" rel="noopener">finor.crm.getrewa.com ↗</a>
-          <div class="chip-row">
-            <span class="chip c-primary">Multi-tenant Architecture</span><span class="chip c-primary">JWT</span><span class="chip c-primary">PostgreSQL</span>
+          <div class="proj-techstack">
+            <div class="proj-subhead">Role &amp; Responsibility</div>
+            <p class="proj-role-text">Full-stack/backend engineer — built the multi-tenant data model, trial-tracking workflows, and the JWT-secured API layer powering the sales dashboard.</p>
+            <div class="proj-subhead">Technology Stack</div>
+            <div class="chip-row">
+              <span class="chip c-primary">Multi-tenant Architecture</span><span class="chip c-primary">JWT</span><span class="chip c-primary">PostgreSQL</span>
+            </div>
           </div>
         </div>
 
@@ -722,8 +810,13 @@
             <li>Designed automated AST parsing and custom prompt-chaining workflows to reverse-engineer procedural program flows into comprehensive Business Requirement Documents (BRDs).</li>
             <li>Slashed manual code exploration efforts by over 60%, drastically accelerating modernization roadmaps and reducing discovery billing costs for enterprise clients.</li>
           </ul>
-          <div class="chip-row">
-            <span class="chip c-secondary">AWS Bedrock</span><span class="chip c-secondary">AST Parsing</span><span class="chip c-secondary">Prompt Engineering</span>
+          <div class="proj-techstack">
+            <div class="proj-subhead">Role &amp; Responsibility</div>
+            <p class="proj-role-text">Solo AI &amp; automation specialist — designed the AST parsing pipeline and prompt-chaining workflow that turns legacy COBOL/RPG into structured BRDs.</p>
+            <div class="proj-subhead">Technology Stack</div>
+            <div class="chip-row">
+              <span class="chip c-secondary">AWS Bedrock</span><span class="chip c-secondary">AST Parsing</span><span class="chip c-secondary">Prompt Engineering</span>
+            </div>
           </div>
         </div>
 
