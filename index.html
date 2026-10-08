@@ -237,15 +237,22 @@
 
   /* ============ PROFILE ============ */
   .profile-grid{display:grid; grid-template-columns:2fr 1fr; gap:var(--sp-6);}
-  .profile-grid .lede{font-size:clamp(1.15rem,2vw,1.35rem); line-height:1.6; font-weight:500; max-width:62ch; color:var(--ink);}
+  .profile-grid .lede{
+    font-family:var(--font-body); font-size:clamp(1.08rem,1.7vw,1.24rem); font-weight:400;
+    line-height:1.8; letter-spacing:-.005em; max-width:62ch; color:var(--ink-soft);
+  }
+  .profile-grid .lede .lede-name{
+    font-family:var(--font-display); font-weight:700; font-size:1.08em; letter-spacing:-.01em; color:var(--ink);
+  }
+  .profile-grid .lede strong{color:var(--primary); font-weight:700;}
   .stat-card{
     background:var(--bg-raised); border:1px solid var(--line); border-radius:var(--r-md); padding:var(--sp-3);
     box-shadow:var(--shadow-sm); display:flex; flex-direction:column; gap:var(--sp-2);
   }
   .stat-row{border-top:1px solid var(--line); padding-top:var(--sp-2); margin-top:var(--sp-2);}
   .stat-row:first-child{border-top:none; padding-top:0; margin-top:0;}
-  .stat-label{font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--primary); margin-bottom:.25rem;}
-  .stat-val{font-size:.95rem; font-weight:600; color:var(--ink);}
+  .stat-label{font-family:var(--font-display); font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--primary); margin-bottom:.3rem;}
+  .stat-val{font-family:var(--font-mono); font-size:.86rem; font-weight:500; letter-spacing:-.01em; line-height:1.5; color:var(--ink);}
 
   /* ============ CAPABILITIES ============ */
   .cap-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--sp-3);}
@@ -457,17 +464,15 @@
     <div class="container">
       <div class="hero-grid">
         <div>
-          <div class="hero-badges">
-            <span class="pill dot c-primary" style="background:var(--primary-soft); color:var(--primary);">Remote · India</span>
-            <span class="pill dot c-good" style="background:var(--good-soft); color:var(--good);">Available for contract</span>
-            <span class="pill c-amber" style="background:var(--amber-soft); color:#9a6300;">6+ yrs experience</span>
-          </div>
           <h1 class="name">Deepak<br/>Kumar</h1>
           <p class="role">Staff AI Engineer &amp; Senior Full Stack Architect</p>
           <div class="descriptor-row">
-            <span style="background:var(--primary-soft); color:var(--primary);">Multi-Agent AI Systems</span>
-            <span style="background:var(--secondary-soft); color:var(--secondary);">Enterprise Distributed Platforms</span>
-            <span style="background:var(--tertiary-soft); color:var(--tertiary);">Autonomous Workflows</span>
+            <span style="background:var(--primary-soft); color:var(--primary);">Freelance / Contract</span>
+            <span style="background:var(--secondary-soft); color:var(--secondary);">Milestones Wise</span>
+            <span style="background:var(--tertiary-soft); color:var(--tertiary);">Part Time</span>
+                        <span style="background:var(--primary-soft); color:var(--primary);">Full Time</span>
+            <span style="background:var(--secondary-soft); color:var(--secondary);">Project Wise</span>
+            <span style="background:var(--tertiary-soft); color:var(--tertiary);">Fixed Cost</span>
           </div>
           <div class="hero-ctas">
             <a class="btn btn-solid" href="#projects">View Projects</a>
@@ -499,20 +504,10 @@
         <span class="kb-chip c-tertiary">AI Agents</span>
         <span class="kb-chip c-amber">AI Chatbots</span>
         <span class="kb-chip c-good">RAG &amp; GraphRAG</span>
-        <span class="kb-chip c-pink">LLM Orchestration</span>
-        <span class="kb-chip c-primary">Conversational AI</span>
+        <span class="kb-chip c-pink">AI Voice & Conversation</span>
         <span class="kb-chip c-secondary">Document Intelligence</span>
         <span class="kb-chip c-tertiary">Enterprise AI Copilots</span>
       </div>
-      <div class="kb-label reveal" style="margin-top:var(--sp-3);">Core Stack</div>
-      <div class="kb-row reveal">
-        <span class="kb-chip c-amber">Python</span>
-        <span class="kb-chip c-good">HTML</span>
-        <span class="kb-chip c-pink">CSS</span>
-        <span class="kb-chip c-primary">JavaScript</span>
-        <span class="kb-chip c-secondary">Bootstrap</span>
-      </div>
-    </div>
   </section>
 
   <!-- ============ PROFILE ============ -->
@@ -522,7 +517,7 @@
       <h2 class="sec-title reveal">Executive Profile</h2>
       <div class="profile-grid">
         <p class="lede reveal">
-          Deepak Kumar is a Staff AI Engineer and Senior Full Stack Architect with 6+ years shipping production systems at the intersection of multi-agent AI and distributed backend engineering: LangGraph and CrewAI orchestration, GraphRAG retrieval, and AWS Bedrock Claude 3.5 deployments running on FastAPI/Django/Celery/PostgreSQL backends integrated with systems like SAP ERP and HL7/FHIR under HIPAA/PHI compliance, alongside PostGIS-powered telematics for real-time logistics fleet tracking. He built this depth as Senior AI Full Stack Engineer and Backend Lead at Thinkwik, and earlier as a Python Developer at Space-O Technologies. He now works as an independent freelance AI &amp; distributed-systems consultant, delivering agentic platforms and backend infrastructure for healthcare and logistics clients worldwide.
+          <span class="lede-name">Deepak Kumar</span> is a <strong>Staff AI Engineer</strong> and <strong>Senior Full Stack Architect</strong> with 6+ years shipping production systems at the intersection of multi-agent AI and distributed backend engineering: LangGraph and CrewAI orchestration, GraphRAG retrieval, and AWS Bedrock Claude 3.5 deployments running on FastAPI/Django/Celery/PostgreSQL backends integrated with systems like SAP ERP and HL7/FHIR under HIPAA/PHI compliance, alongside PostGIS-powered telematics for real-time logistics fleet tracking. He built this depth as Senior AI Full Stack Engineer and Backend Lead at Thinkwik, and earlier as a Python Developer at Space-O Technologies. He now works as an independent freelance AI &amp; distributed-systems consultant, delivering agentic platforms and backend infrastructure for healthcare and logistics clients worldwide.
         </p>
         <div class="stat-card reveal">
           <div class="stat-row">
@@ -530,12 +525,8 @@
             <div class="stat-val">India — working remote, global clients</div>
           </div>
           <div class="stat-row">
-            <div class="stat-label">Engagement</div>
-            <div class="stat-val">Freelance / contract, solo or embedded</div>
-          </div>
-          <div class="stat-row">
             <div class="stat-label">Specialty verticals</div>
-            <div class="stat-val">Healthcare, logistics, enterprise ERP</div>
+            <div class="stat-val">Building Backend Systems, AI Applications</div>
           </div>
           <div class="stat-row">
             <div class="stat-label">Languages</div>
@@ -670,8 +661,28 @@
       <h2 class="sec-title reveal">Featured Projects Portfolio</h2>
       <div class="proj-grid">
 
-        <div class="proj-card proj-feature c-primary reveal" data-index="01">
-          <div class="proj-top"><span class="proj-no">01 / 09</span><span class="proj-domain">Healthcare &amp; MedTech</span></div>
+        <div class="proj-card proj-feature c-tertiary reveal" data-index="01">
+          <div class="proj-top"><span class="proj-no">01 / 09</span><span class="proj-domain">Finance Automation &amp; Document Intelligence</span></div>
+          <span class="feature-eyebrow">Flagship · Solo Build</span>
+          <div class="proj-title">InvoiceIQ AI</div>
+          <div class="proj-role-row"><span class="badge solo">Solo Architect &amp; Developer</span></div>
+          <ul class="proj-bullets">
+            <li>Built an end-to-end OCR extraction pipeline (AWS Textract plus custom post-processing rules) that parses scanned and PDF invoices into structured vendor, line-item, tax, and total fields across inconsistent layouts, with confidence scoring to flag uncertain fields for review.</li>
+            <li>Architected the backend as a Django service (data models, auth, admin, PostgreSQL persistence) paired with a decoupled Flask microservice for OCR and extraction workloads, connected via internal REST APIs and async job queues for batch invoice processing.</li>
+            <li>Designed a Bootstrap-based reviewer console for human-in-the-loop correction of low-confidence extracted fields before export, and deployed the stack on AWS (EC2 compute, S3 document storage) with containerized services for repeatable releases.</li>
+          </ul>
+          <div class="proj-techstack">
+            <div class="proj-subhead">Role &amp; Responsibility</div>
+            <p class="proj-role-text">Sole architect and engineer — designed the extraction pipeline, backend services, review UI, and AWS deployment end-to-end.</p>
+            <div class="proj-subhead">Technology Stack</div>
+            <div class="chip-row">
+              <span class="chip c-tertiary">AI/ML</span><span class="chip c-tertiary">Python</span><span class="chip c-tertiary">Django</span><span class="chip c-tertiary">Flask</span><span class="chip c-tertiary">OCR</span><span class="chip c-tertiary">AWS</span><span class="chip c-tertiary">PostgreSQL</span><span class="chip c-tertiary">HTML</span><span class="chip c-tertiary">CSS</span><span class="chip c-tertiary">JavaScript</span><span class="chip c-tertiary">Bootstrap</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card proj-feature c-primary reveal" data-index="02">
+          <div class="proj-top"><span class="proj-no">02 / 09</span><span class="proj-domain">Healthcare &amp; MedTech</span></div>
           <span class="feature-eyebrow">Flagship · Solo Build</span>
           <div class="proj-title">MedIQ AI</div>
           <div class="proj-role-row"><span class="badge solo">Solo Architect &amp; Developer</span><span class="badge nda">Private · NDA</span></div>
@@ -690,8 +701,8 @@
           </div>
         </div>
 
-        <div class="proj-card proj-feature c-secondary reveal" data-index="02">
-          <div class="proj-top"><span class="proj-no">02 / 09</span><span class="proj-domain">Smart Logistics &amp; IoT</span></div>
+        <div class="proj-card proj-feature c-secondary reveal" data-index="03">
+          <div class="proj-top"><span class="proj-no">03 / 09</span><span class="proj-domain">Smart Logistics &amp; IoT</span></div>
           <span class="feature-eyebrow">Flagship · Solo Build</span>
           <div class="proj-title">LogiFleet AI</div>
           <div class="proj-role-row"><span class="badge solo">Solo Systems Architect</span><span class="badge nda">Private · NDA</span></div>
@@ -710,8 +721,8 @@
           </div>
         </div>
 
-        <div class="proj-card proj-feature c-tertiary reveal" data-index="03">
-          <div class="proj-top"><span class="proj-no">03 / 09</span><span class="proj-domain">Enterprise Conversational AI</span></div>
+        <div class="proj-card proj-feature c-tertiary reveal" data-index="04">
+          <div class="proj-top"><span class="proj-no">04 / 09</span><span class="proj-domain">Enterprise Conversational AI</span></div>
           <span class="feature-eyebrow">Production · Live Deployment</span>
           <div class="proj-title">Copilot AI Business Assistant</div>
           <div class="proj-role-row"><span class="badge role">Backend &amp; AI Integration Lead</span><span class="badge live">Live</span></div>
@@ -731,8 +742,8 @@
           </div>
         </div>
 
-        <div class="proj-card proj-feature c-amber reveal" data-index="04">
-          <div class="proj-top"><span class="proj-no">04 / 09</span><span class="proj-domain">Manufacturing &amp; Supply Chain</span></div>
+        <div class="proj-card proj-feature c-amber reveal" data-index="05">
+          <div class="proj-top"><span class="proj-no">05 / 09</span><span class="proj-domain">Manufacturing &amp; Supply Chain</span></div>
           <span class="feature-eyebrow">Production · Live Deployment</span>
           <div class="proj-title">Rewa-So</div>
           <div class="proj-role-row"><span class="badge role">Backend Architect &amp; API Lead</span><span class="badge live">Live</span></div>
@@ -752,8 +763,8 @@
           </div>
         </div>
 
-        <div class="proj-card proj-feature c-good reveal" data-index="05">
-          <div class="proj-top"><span class="proj-no">05 / 09</span><span class="proj-domain">Enterprise Workforce Ops</span></div>
+        <div class="proj-card proj-feature c-good reveal" data-index="06">
+          <div class="proj-top"><span class="proj-no">06 / 09</span><span class="proj-domain">Enterprise Workforce Ops</span></div>
           <span class="feature-eyebrow">Production · Live Deployment</span>
           <div class="proj-title">OneTeam HRMS</div>
           <div class="proj-role-row"><span class="badge role">Core Backend &amp; DB Engineer</span><span class="badge live">Live</span></div>
@@ -773,8 +784,8 @@
           </div>
         </div>
 
-        <div class="proj-card proj-feature c-pink reveal" data-index="06">
-          <div class="proj-top"><span class="proj-no">06 / 09</span><span class="proj-domain">B2B Supply Chain &amp; ERP Sync</span></div>
+        <div class="proj-card proj-feature c-pink reveal" data-index="07">
+          <div class="proj-top"><span class="proj-no">07 / 09</span><span class="proj-domain">B2B Supply Chain &amp; ERP Sync</span></div>
           <span class="feature-eyebrow">Production · Live Deployment</span>
           <div class="proj-title">Rewa Procurement</div>
           <div class="proj-role-row"><span class="badge role">Backend &amp; SAP Sync Lead</span><span class="badge live">Live</span></div>
@@ -794,8 +805,8 @@
           </div>
         </div>
 
-        <div class="proj-card proj-feature c-primary reveal" data-index="07">
-          <div class="proj-top"><span class="proj-no">07 / 09</span><span class="proj-domain">Manufacturing &amp; Chemical Sales</span></div>
+        <div class="proj-card proj-feature c-primary reveal" data-index="08">
+          <div class="proj-top"><span class="proj-no">08 / 09</span><span class="proj-domain">Manufacturing &amp; Chemical Sales</span></div>
           <span class="feature-eyebrow">Production · Live Deployment</span>
           <div class="proj-title">Industrial B2B CRM Platform</div>
           <div class="proj-role-row"><span class="badge role">Full Stack / Backend Engineer</span><span class="badge live">Live</span></div>
@@ -815,8 +826,8 @@
           </div>
         </div>
 
-        <div class="proj-card proj-feature c-secondary reveal" data-index="08">
-          <div class="proj-top"><span class="proj-no">08 / 09</span><span class="proj-domain">Enterprise Software Engineering</span></div>
+        <div class="proj-card proj-feature c-secondary reveal" data-index="09">
+          <div class="proj-top"><span class="proj-no">09 / 09</span><span class="proj-domain">Enterprise Software Engineering</span></div>
           <span class="feature-eyebrow">Internal · Automation Build</span>
           <div class="proj-title">Platform-AI: Legacy Code Modernization Engine</div>
           <div class="proj-role-row"><span class="badge solo">Solo AI &amp; Automation Specialist</span><span class="badge internal">Internal Deployment</span></div>
@@ -831,26 +842,6 @@
             <div class="proj-subhead">Technology Stack</div>
             <div class="chip-row">
               <span class="chip c-secondary">AWS Bedrock</span><span class="chip c-secondary">AST Parsing</span><span class="chip c-secondary">Prompt Engineering</span><span class="chip c-secondary">Python</span><span class="chip c-secondary">Django</span><span class="chip c-secondary">HTML</span><span class="chip c-secondary">CSS</span><span class="chip c-secondary">JavaScript</span><span class="chip c-secondary">Bootstrap</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="proj-card proj-feature c-tertiary reveal" data-index="09">
-          <div class="proj-top"><span class="proj-no">09 / 09</span><span class="proj-domain">Finance Automation &amp; Document Intelligence</span></div>
-          <span class="feature-eyebrow">Flagship · Solo Build</span>
-          <div class="proj-title">InvoiceIQ AI</div>
-          <div class="proj-role-row"><span class="badge solo">Solo Architect &amp; Developer</span></div>
-          <ul class="proj-bullets">
-            <li>Built an end-to-end OCR extraction pipeline (AWS Textract plus custom post-processing rules) that parses scanned and PDF invoices into structured vendor, line-item, tax, and total fields across inconsistent layouts, with confidence scoring to flag uncertain fields for review.</li>
-            <li>Architected the backend as a Django service (data models, auth, admin, PostgreSQL persistence) paired with a decoupled Flask microservice for OCR and extraction workloads, connected via internal REST APIs and async job queues for batch invoice processing.</li>
-            <li>Designed a Bootstrap-based reviewer console for human-in-the-loop correction of low-confidence extracted fields before export, and deployed the stack on AWS (EC2 compute, S3 document storage) with containerized services for repeatable releases.</li>
-          </ul>
-          <div class="proj-techstack">
-            <div class="proj-subhead">Role &amp; Responsibility</div>
-            <p class="proj-role-text">Sole architect and engineer — designed the extraction pipeline, backend services, review UI, and AWS deployment end-to-end.</p>
-            <div class="proj-subhead">Technology Stack</div>
-            <div class="chip-row">
-              <span class="chip c-tertiary">AI/ML</span><span class="chip c-tertiary">Python</span><span class="chip c-tertiary">Django</span><span class="chip c-tertiary">Flask</span><span class="chip c-tertiary">OCR</span><span class="chip c-tertiary">AWS</span><span class="chip c-tertiary">PostgreSQL</span><span class="chip c-tertiary">HTML</span><span class="chip c-tertiary">CSS</span><span class="chip c-tertiary">JavaScript</span><span class="chip c-tertiary">Bootstrap</span>
             </div>
           </div>
         </div>
